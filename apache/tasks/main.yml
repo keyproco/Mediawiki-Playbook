@@ -1,0 +1,19 @@
+---
+# tasks file for apache
+#1. Cette tâche permet d’installer Apache (httpd) à l’aide du module apt
+- name: "apache installation"
+  apt:
+    name: "apache2"
+    state: "present"
+
+#2. Cette tâche active le service Apache
+- name: "apache service activation"
+  service:
+    name: "apache2"
+    state: "started"
+    enabled: yes
+
+#3. Cette tâche fait appel à un autre fichier de configuration pour installer PHP. Elle est exécutée uniquement si la variable php_install est à vraie (par défaut, elle est à faux)
+- name: "install php7 packages"
+  include: "php7-install.yml"
+  when: php_install|default(False)|bool

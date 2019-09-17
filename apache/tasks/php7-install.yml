@@ -1,0 +1,32 @@
+---
+  - name: Updating & upgrading Ubuntu Server
+    raw: "apt update"
+  - name: install software-properties
+    apt: 
+      name: software-properties-common
+  - name: updating
+    apt: 
+      update_cache: yes
+  - name: "Add repository for PHP 7.3"
+    apt_repository: repo=ppa:ondrej/php update_cache=yes
+  - name: Update
+    raw: "apt update"
+  - name: Install a list of packages
+    apt:
+      name: "{{ packages }}"
+    vars:
+      packages:
+      - php7.3-fpm
+      - php7.3-json 
+      - php7.3-mysql
+      - php7.3-zip
+      - php7.3-gd
+      - php7.3-mbstring
+      - php7.3-xml
+      - php7.3-bcmath
+      - php7.3-json
+      - php7.3-curl
+      - php7.3-pdo
+      - libapache2-mod-php7.3
+
+

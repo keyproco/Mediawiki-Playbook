@@ -1,0 +1,23 @@
+---
+#1. Installation de la base de donnée Mediawiki
+- name: "mediawiki database"
+  mysql_db:
+    name: "{{mediawiki_db_name}}"
+    state: present
+    encoding: Utf8
+    config_file: /etc/mysql/debian.cnf
+
+#2. Création d’un accès utilisateur et attribution des privilèges sur la base Mediawiki
+- name: "mediawiki user+privileges"
+  become: true
+  become_user: "root"
+  mysql_user:
+    name: "{{mediawiki_db_user}}"
+    #password: "{{mediawiki_db_password}}"
+    user: "{{mediawiki_db_user}}"
+    password: "{{mediawiki_db_password}}"
+    config_file: /etc/mysql/debian.cnf
+    priv: "{{mediawiki_db_name}}.*:ALL"
+    host: "{{item}}"
+    state: present
+  with_items: "{{groups.webserver}}"

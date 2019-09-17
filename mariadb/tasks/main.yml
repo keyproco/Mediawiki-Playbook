@@ -1,0 +1,28 @@
+---
+- name: "Import MariaDB gpg key"
+  apt_key:
+    keyserver: hkp://keyserver.ubuntu.com:80
+    id: C74CD1D8
+
+- name: "mariadb-server installation"
+  apt:
+    name: "mariadb-server,mariadb-client,python-mysqldb"
+    state: "present"
+
+# Active le service MariaDB 
+- name: "start mariadb service"
+  service:
+    name:  "mariadb"
+    state: "started"
+    enabled: yes
+- name: "edit mysql  my.cnf"
+  blockinfile:
+    path: /etc/mysql/my.cnf
+    block: |
+      [mysqld]
+      bind-address=192.168.146.146
+- name: Restart service mysql(mariaDB)
+  service:
+    name: mysql
+    state: restarted
+
