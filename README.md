@@ -1,2 +1,2 @@
-# WikiMedia-Playbook
+# Mediawiki-Playbook
  Ubuntu 18.04
