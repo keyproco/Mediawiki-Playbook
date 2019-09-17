@@ -1,11 +1,11 @@
 # Mediawiki-Playbook
- Deploy on Ubuntu 18.04 with ease.
-TODO: Write a project description
-
+ Deploy mediawiki on Ubuntu server 18.04  with ease.
 ## Installation
 
-Ensure that you have Python and ansible installed
-For users that don't know what the heck is a playbook, I invite you to check about ansible and learn about this awesome tool for automation :)
+ - Ensure that you have Python and ansible installed, 
+ - client servers need to have python installed.
+ 
+> For users that don't know what the heck is a playbook, I invite you to check about ansible and learn about this awesome tool for automation :)
 
 ## Usage
 
