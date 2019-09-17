@@ -5,7 +5,7 @@
  - Ensure that you have Python and ansible installed, 
  - client servers need to have python installed.
  
-> For users that don't know what the heck is a playbook, I invite you to check about ansible and learn about this awesome tool for automation :)
+> For users who don't know what the heck is a playbook, I invite you to check about ansible and learn about this awesome tool useful for automation :)
 
 ## Usage
 
