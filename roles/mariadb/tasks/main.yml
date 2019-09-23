@@ -20,7 +20,7 @@
     path: /etc/mysql/my.cnf
     block: |
       [mysqld]
-      bind-address=192.168.146.146
+      bind-address={{groups.db}}
 - name: Restart service mysql(mariaDB)
   service:
     name: mysql
